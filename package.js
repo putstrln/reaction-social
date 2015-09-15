@@ -1,39 +1,39 @@
 Package.describe({
   summary: "Reaction Social - Social Sharing Package for Reaction",
-  name: "lovetostrike:reaction-social",
-  version: "0.1.0",
-  git: "https://github.com/lovetostrike/reaction-social.git"
+  name: "reactioncommerce:reaction-social",
+  version: "0.3.0",
+  git: "https://github.com/reactioncommerce/reaction-social.git"
 });
 
 Package.onUse(function (api, where) {
   api.versionsFrom('METEOR@1.0');
-  api.use("meteor-platform@1.2.1");
+  api.use("meteor-platform");
   api.use("templating");
-  api.use("coffeescript");
   api.use("less");
-  api.use("reactioncommerce:core@0.5.2");
+  api.use("reactioncommerce:core@0.7.0");
 
-  api.addFiles("server/register.coffee",["server"]); // register as a reaction package
+  api.addFiles("server/register.js",["server"]); // register as a reaction package
+  api.addFiles("server/policy.js",["server"]); // browser-policies
 
   api.addFiles([
-    "common/routing.coffee",
-    "common/schemas.coffee"   // Social Apps Config
+    "common/routing.js",
+    "common/schemas.js"   // Social Apps Config
   ], ["client","server"]);
 
   api.addFiles([
     "client/templates/social.html",
-    "client/templates/social.coffee",
+    "client/templates/social.js",
 
     "client/templates/dashboard/social.html",
-    "client/templates/dashboard/social.coffee",
+    "client/templates/dashboard/social.js",
 
     "client/templates/apps/facebook.html",
-    "client/templates/apps/facebook.coffee",
+    "client/templates/apps/facebook.js",
     "client/templates/apps/googleplus.html",
-    "client/templates/apps/googleplus.coffee",
+    "client/templates/apps/googleplus.js",
     "client/templates/apps/pinterest.html",
-    "client/templates/apps/pinterest.coffee",
+    "client/templates/apps/pinterest.js",
     "client/templates/apps/twitter.html",
-    "client/templates/apps/twitter.coffee",
+    "client/templates/apps/twitter.js",
   ], ["client"]);
 });
